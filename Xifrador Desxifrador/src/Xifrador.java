@@ -16,16 +16,18 @@ public class Xifrador {
         StringBuilder frasecanviada = new StringBuilder(); // StringBuilder ens crearà la frase encriptada
         for (int index = 0; index < frase.length(); index++) { // Iniciam index com a 0, i aquest bucle es farà fins que
                                                                // haguem xifrat tots els caràcters
-            int caracterxifrat = 0;
-            if (index < 1) {
-                char caracter = (char) ValorXifratge;
-                caracterxifrat = caracter * ValorXifratge;
-                frasecanviada.append(" ").append(caracterxifrat);
+            int caracterxifrat = 0; // Inicialitzam el caracterxifrat
+            if (index < 1) { // abans de començar a xifrar, escrivim el valor per el qual esteim xifrant,
+                             // pero elevat al quadrat.
+                char caracter = (char) ValorXifratge; // convertim el valorxifratge a caracter
+                caracterxifrat = caracter * ValorXifratge; // multiplicam el valorxifratge per ell mateix (més robust)
+                frasecanviada.append(" ").append(caracterxifrat); // Afegim aquest valor a la frase
             }
-            char caracter = frase.charAt(index);
-            caracterxifrat = caracter * ValorXifratge;
-            frasecanviada.append(" ").append(caracterxifrat);
+            char caracter = frase.charAt(index); // agafam el (index) de la frase, per encriptar el primer caracter,
+                                                 // després el segon...
+            caracterxifrat = caracter * ValorXifratge; // Xifram
+            frasecanviada.append(" ").append(caracterxifrat); // Afegim el caracter xifrat a la frase
         }
-        return frasecanviada.toString().trim();
+        return frasecanviada.toString().trim(); // Retornam la Frase Xifrada
     }
 }
