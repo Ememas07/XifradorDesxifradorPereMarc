@@ -16,7 +16,8 @@ public class desxifrador {
         int primer = 0;
         double factor = 0;
         int factor2 = (int) factor;
-        int valor = 0;
+        double valor = 0;
+        int valor2 = (int) valor;
         String desxifrar = "";
         for (int i = 0; i < frase.length(); i += midaBlock) {
             primer = primer + 1;
@@ -26,17 +27,17 @@ public class desxifrador {
                 char caracter = block.charAt(index);
                 desxifrar = desxifrar + caracter;
             }
-            System.out.println("" + desxifrar);
-            
-            if (primer == 1) {
-                factor = Math.sqrt(desxifrar);
-            }
             valor = Integer.parseInt(desxifrar);
-            valor = (valor / factor2);
-            System.out.println(factor);
-            System.out.println(factor2);
-            System.out.println(valor);
-            System.out.println(desxifrar);
+            if (primer == 1) {
+                factor = Math.sqrt(valor);
+            }
+            valor2 = (int) valor;
+            factor2 = (int) factor;
+            valor2 = (valor2 / factor2);
+            if (primer > 1) {
+                System.out.println((char) valor2);
+            }
+
             desxifrar = "";
 
         }
