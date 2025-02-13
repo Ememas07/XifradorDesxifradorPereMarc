@@ -14,6 +14,9 @@ public class desxifrador {
         StringBuilder frasecanviada = new StringBuilder();
         int midaBlock = 5;
         int primer = 0;
+        double factor = 0;
+        int factor2 = (int) factor;
+        int valor = 0;
         String desxifrar = "";
         for (int i = 0; i < frase.length(); i += midaBlock) {
             primer = primer + 1;
@@ -24,6 +27,16 @@ public class desxifrador {
                 desxifrar = desxifrar + caracter;
             }
             System.out.println("" + desxifrar);
+            
+            if (primer == 1) {
+                factor = Math.sqrt(desxifrar);
+            }
+            valor = Integer.parseInt(desxifrar);
+            valor = (valor / factor2);
+            System.out.println(factor);
+            System.out.println(factor2);
+            System.out.println(valor);
+            System.out.println(desxifrar);
             desxifrar = "";
 
         }
