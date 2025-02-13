@@ -12,7 +12,6 @@ public class Xifrador {
             return "";
         }
         int ValorXifratge = (int) ((Math.random() + 1) * 100);
-        System.out.println("Valor Xifratge =" + ValorXifratge);
         StringBuilder frasecanviada = new StringBuilder(); // StringBuilder ens crearà la frase encriptada
         for (int index = 0; index < frase.length(); index++) { // Iniciam index com a 0, i aquest bucle es farà fins que
                                                                // haguem xifrat tots els caràcters
