@@ -25,7 +25,7 @@ public class Xifrador {
             char caracter = frase.charAt(index); // agafam el (index) de la frase, per encriptar el primer caracter,
                                                  // després el segon...
             caracterxifrat = caracter * ValorXifratge; // Xifram
-            frasecanviada.append(" ").append(caracterxifrat); // Afegim el caracter xifrat a la frase
+            frasecanviada.append(caracterxifrat); // Afegim el caracter xifrat a la frase
         }
         return frasecanviada.toString().trim(); // Retornam la Frase Xifrada
     }
