@@ -3,8 +3,26 @@ import javax.swing.JOptionPane;
 public class Xifrador {
     public static void main(String[] args) {
         String frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
-        String frasexifrada = encriptador(frase); // Passam el xifrador per la frase
-        System.out.println(frasexifrada); // Posam la frase xifrada i la donam per consola
+        String[] opcions = { "Consola", "Document" };
+        // Show confirmation dialog with custom options
+        int opcio = JOptionPane.showOptionDialog(
+                null,
+                "Selecciona una opció:", // Message
+                "Opció de Sortida", // Title
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opcions,
+                opcions[0] // Default selection
+        );
+
+        switch (opcio) {
+            case 0:
+                String frasexifrada = encriptador(frase); // Passam el xifrador per la frase
+                System.out.println(frasexifrada); // Posam la frase xifrada i la donam per consola
+            default:
+                break;
+        }
     }
 
     public static String encriptador(String frase) { // Encriptam la frase
