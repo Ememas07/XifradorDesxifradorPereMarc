@@ -25,7 +25,8 @@ public class Xifrador {
             char caracter = frase.charAt(index); // agafam el (index) de la frase, per encriptar el primer caracter,
                                                  // després el segon...
             caracterxifrat = caracter * ValorXifratge; // Xifram
-            if (caracterxifrat < 10000) {
+            if (caracterxifrat < 10000) { // si el valor es menys de 10000, probablement per un espai, l'assignam a
+                                          // 10000
                 caracterxifrat = 10000;
             }
 
