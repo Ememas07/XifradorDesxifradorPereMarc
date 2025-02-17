@@ -60,21 +60,4 @@ public class desxifrador {
         return frasecanviada.toString();
     }
 
-}// 35721 19656 20979 20412 18333
-/*
- * int ValorXifratge = (int) ((Math.random() + 1) * 100);
- * System.out.println("Valor Xifratge =" + ValorXifratge);
- * StringBuilder frasecanviada = new StringBuilder();
- * for (int index = 0; index < frase.length(); index++) {
- * 
- * int caracterxifrat = 0;
- * if (index < 1) {
- * char caracter = (char) ValorXifratge;
- * caracterxifrat = caracter * ValorXifratge;
- * frasecanviada.append(" ").append(caracterxifrat);
- * }
- * char caracter = frase.charAt(index);
- * caracterxifrat = caracter * ValorXifratge;
- * frasecanviada.append(" ").append(caracterxifrat);
- * return frasecanviada.toString().trim();
- */
+}
