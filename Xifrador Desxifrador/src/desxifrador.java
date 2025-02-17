@@ -45,14 +45,17 @@ public class desxifrador {
             }
             valor2 = (int) valor; // convertim de double a integer
             factor2 = (int) factor;
-            valor2 = (valor2 / factor2); // desxifram, assignam "valor2" al resultat del Integer.parseInt(desxifrar)
-            if (primer > 1) {
-                if (valor == 10000) {
+            valor2 = (valor2 / factor2); // desxifram, assignam "valor2" al resultat del Integer.parseInt(desxifrar), i
+                                         // dividim entre el factor, o sigui, si teniem "32507", dividim 32507 entre 167
+                                         // i ens donarà un valor de la taula ascii
+            if (primer > 1) { // Si no es el primer valor feim el seguent:
+                if (valor == 10000) { // Si el valor es 10000, que és el que li hem assignat als espais, assignam
+                                      // valor2 de 32 per escriure l'espai correctament.
                     valor2 = 32;
                 }
-                System.out.print((char) valor2);
+                System.out.print((char) valor2); // Imprimim el caracter a la consola
             }
-            desxifrar = "";
+            desxifrar = ""; // Reinicialitzam la variable de desxifrar
         }
         return frasecanviada.toString();
     }
