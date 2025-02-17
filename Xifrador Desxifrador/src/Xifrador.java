@@ -20,11 +20,15 @@ public class Xifrador {
                              // pero elevat al quadrat.
                 char caracter = (char) ValorXifratge; // convertim el valorxifratge a caracter
                 caracterxifrat = caracter * ValorXifratge; // multiplicam el valorxifratge per ell mateix (més robust)
-                frasecanviada.append(" ").append(caracterxifrat); // Afegim aquest valor a la frase
+                frasecanviada.append("").append(caracterxifrat); // Afegim aquest valor a la frase
             }
             char caracter = frase.charAt(index); // agafam el (index) de la frase, per encriptar el primer caracter,
                                                  // després el segon...
             caracterxifrat = caracter * ValorXifratge; // Xifram
+            if (caracterxifrat < 10000) {
+                caracterxifrat = 10000;
+            }
+
             frasecanviada.append(caracterxifrat); // Afegim el caracter xifrat a la frase
         }
         return frasecanviada.toString().trim(); // Retornam la Frase Xifrada
