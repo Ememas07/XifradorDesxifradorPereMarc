@@ -1,10 +1,17 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 public class Super {
     public static void main(String[] args) {
-        String frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
-        String[] opcions = { "Xifrador - Consola", "Xifrador - Document", "DesXifrador - Consola",
-                "DesXifrador - Document" };
+        String frase;
+        String nomArxiu;
+        String[] opcions = { "Xifrador - Consola", "Xifrador - Document", "Desxifrador - Consola",
+                "Desxifrador - Document" };
         // Show confirmation dialog with custom options
         int opcio = JOptionPane.showOptionDialog(
                 null,
@@ -21,22 +28,52 @@ public class Super {
 
         switch (opcio) {
             case 0:
+                frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
                 frasexifrada = encriptador(frase); // Passam el xifrador per la frase
                 System.out.println(frasexifrada); // Posam la frase xifrada i la donam per consola
                 break;
             case 1:
+                frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
+                nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu"); // Demanam a l'usuari que introdueixi
+                                                                                   // el nom de l'arxiu
                 frasexifrada = encriptador(frase); // Passam el xifrador per la frase
-                System.out.println(frasexifrada + "a"); // Posam la frase xifrada i la donam per consola
+                EscriureArxiu(nomArxiu, frasexifrada); // Escrivim l'arxiu xifrat al document
                 break;
             case 2:
+                frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
                 frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
                 System.out.println(frasedesxifrada); // Posam la frase xifrada i la donam per consola
                 break;
             case 3:
+                nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu"); // Demanam a l'usuari que introdueixi
+                                                                                   // el nom de l'arxiu
+                frase = LlegirArxiu(nomArxiu); // Crida la funcio de llegir arxiu
                 frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
-                System.out.println(frasedesxifrada + "a"); // Posam la frase xifrada i la donam per consola
                 break;
         }
+    }
+
+    public static void EscriureArxiu(String nomArxiu, String contingutArxiu) { // Aquesta funció llegeix l'arxiu que
+                                                                               // nosaltres li diguem
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomArxiu))) {
+            writer.write(contingutArxiu);
+            System.out.println("Dades guardades en el fitxer: " + nomArxiu);
+        } catch (IOException e) {
+            System.out.println("Error d'escriptura: " + e.getMessage());
+        }
+    }
+
+    public static String LlegirArxiu(String nomArxiu) {
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomArxiu))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Error de lectura: " + e.getMessage());
+        }
+        return content.toString().trim();
     }
 
     public static String encriptador(String frase) { // Encriptam la frase
