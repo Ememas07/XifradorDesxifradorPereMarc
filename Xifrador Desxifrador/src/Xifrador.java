@@ -29,7 +29,6 @@ public class Xifrador {
                                           // 10000
                 caracterxifrat = 10000;
             }
-
             frasecanviada.append(caracterxifrat); // Afegim el caracter xifrat a la frase
         }
         return frasecanviada.toString().trim(); // Retornam la Frase Xifrada
