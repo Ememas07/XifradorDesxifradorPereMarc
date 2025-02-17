@@ -35,16 +35,14 @@ public class desxifrador {
             factor2 = (int) factor;
             valor2 = (valor2 / factor2);
             if (primer > 1) {
-                if (valor2 == 10000) {
+                if (valor == 10000) {
                     valor2 = 32;
                 }
-                System.out.println((char) valor2);
+                System.out.print((char) valor2);
             }
-
             desxifrar = "";
-
         }
-        return frasecanviada.toString().trim();
+        return frasecanviada.toString();
     }
 
 }// 35721 19656 20979 20412 18333
