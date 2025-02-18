@@ -14,7 +14,6 @@ public class XifradorDesxifrador {
         String frasedesxifrada;
         String[] opcions = { "Xifrador - Consola", "Xifrador - Document", "Desxifrador - Consola",
                 "Desxifrador - Document" }; // Les quatre opcions que pots fer
-        //
         int opcio = JOptionPane.showOptionDialog(null,
                 "Que vols fer?", // Títol
                 "Seleccioni una opció", // Missatge de la barra de dalt
