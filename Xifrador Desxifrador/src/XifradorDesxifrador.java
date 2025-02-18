@@ -8,23 +8,15 @@ import javax.swing.JOptionPane;
 
 public class XifradorDesxifrador {
     public static void main(String[] args) {
-        String frase;
+        String frase; // inicialitzam totes les variables
         String nomArxiu;
+        String frasexifrada;
+        String frasedesxifrada;
         String[] opcions = { "Xifrador - Consola", "Xifrador - Document", "Desxifrador - Consola",
                 "Desxifrador - Document" };
         // Show confirmation dialog with custom options
-        int opcio = JOptionPane.showOptionDialog(
-                null,
-                "Selecciona una opció:", // Message
-                "Opció de Sortida", // Title
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                opcions,
-                opcions[0] // Default selection
-        );
-        String frasexifrada;
-        String frasedesxifrada;
+        int opcio = JOptionPane.showOptionDialog(null, "Selecciona una opció:", "Opció de Sortida",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcions, opcions[0]);
 
         switch (opcio) {
             case 0:
@@ -34,8 +26,9 @@ public class XifradorDesxifrador {
                 break;
             case 1:
                 frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
-                nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu"); // Demanam a l'usuari que introdueixi
-                                                                                   // el nom de l'arxiu
+                nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)"); // Demanam a l'usuari
+                                                                                                   // que introdueixi el
+                                                                                                   // nom de l'arxiu
                 frasexifrada = encriptador(frase); // Passam el xifrador per la frase
                 EscriureArxiu(nomArxiu, frasexifrada); // Escrivim l'arxiu xifrat al document
                 break;
@@ -45,8 +38,9 @@ public class XifradorDesxifrador {
                 System.out.println(frasedesxifrada); // Posam la frase xifrada i la donam per consola
                 break;
             case 3:
-                nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu"); // Demanam a l'usuari que introdueixi
-                                                                                   // el nom de l'arxiu
+                nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)"); // Demanam a l'usuari
+                                                                                                   // que introdueixi el
+                                                                                                   // nom de l'arxiu
                 frase = LlegirArxiu(nomArxiu); // Crida la funcio de llegir arxiu
                 frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
                 break;
@@ -55,22 +49,27 @@ public class XifradorDesxifrador {
 
     public static void EscriureArxiu(String nomArxiu, String contingutArxiu) { // Aquesta funció llegeix l'arxiu que
                                                                                // nosaltres li diguem
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomArxiu))) {
-            writer.write(contingutArxiu);
-            System.out.println("Dades guardades en el fitxer: " + nomArxiu);
-        } catch (IOException e) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomArxiu))) { // El BufferedWriter esciurà un
+                                                                                     // arxiu a l'arxiu que nosaltres li
+                                                                                     // diguem
+            writer.write(contingutArxiu); // Escriu l'arxiu
+            System.out.println("Dades guardades en el fitxer: " + nomArxiu); // i ens informarà de que ho ha guardat al
+                                                                             // fitxer que li hem posat
+        } catch (IOException e) { // Si hi ha cap error, ens informarà a través de la següent linea
             System.out.println("Error d'escriptura: " + e.getMessage());
         }
     }
 
-    public static String LlegirArxiu(String nomArxiu) {
-        StringBuilder content = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(nomArxiu))) {
+    public static String LlegirArxiu(String nomArxiu) { // Aquesta funció llegeix l'arxiu que nosaltres li diem
+        StringBuilder content = new StringBuilder(); // Crea un string "content" en el qual hi posarem tot el contingut
+                                                     // de l'arxiu
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomArxiu))) { // Llegeix l'arxiu
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) { // Mentre que la nova linea de l'arxiu no estigui buida,
+                                                         // llegeix l'arxiu
                 content.append(line).append("\n");
             }
-        } catch (IOException e) {
+        } catch (IOException e) { // si hi ha cap error, ens informarà
             System.out.println("Error de lectura: " + e.getMessage());
         }
         return content.toString().trim();
@@ -153,7 +152,7 @@ public class XifradorDesxifrador {
             }
             desxifrar = ""; // Reinicialitzam la variable de desxifrar
         }
-        return frasecanviada.toString();
+        return frasecanviada.toString(); // Retornam la frasecanviada
     }
 
 }
