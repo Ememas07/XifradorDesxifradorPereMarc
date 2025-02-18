@@ -13,11 +13,16 @@ public class XifradorDesxifrador {
         String frasexifrada;
         String frasedesxifrada;
         String[] opcions = { "Xifrador - Consola", "Xifrador - Document", "Desxifrador - Consola",
-                "Desxifrador - Document" };
-        // Show confirmation dialog with custom options
-        int opcio = JOptionPane.showOptionDialog(null, "Que vols fer?", "Seleccioni una opció", -1, 3, null,
-                opcions,
-                opcions[0]);
+                "Desxifrador - Document" }; // Les quatre opcions que pots fer
+        //
+        int opcio = JOptionPane.showOptionDialog(null,
+                "Que vols fer?", // Títol
+                "Seleccioni una opció", // Missatge de la barra de dalt
+                -1, // Opció per defecte (no n'hi ha)
+                3, // Tipus de missatge, 3 és per opció múltiple
+                null, // icono (no en tenim)
+                opcions, // Quines opcions tenim
+                opcions[0]); // Primera opció
 
         switch (opcio) {
             case 0:
