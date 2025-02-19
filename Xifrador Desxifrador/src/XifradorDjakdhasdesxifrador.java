@@ -58,16 +58,16 @@ public class XifradorDjakdhasdesxifrador {
     }
 
     public static String LlegirArxiu(String nomArxiu) {
-        StringBuilder content = new StringBuilder();
+        StringBuilder contingut = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(nomArxiu))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
+                contingut.append(line).append("\n");
             }
         } catch (IOException e) {
             System.out.println("Error de lectura: " + e.getMessage());
         }
-        return content.toString().trim();
+        return contingut.toString().trim();
     }
 
     public static String encriptador(String frase) {
