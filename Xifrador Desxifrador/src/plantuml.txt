@@ -1,0 +1,69 @@
+@startuml
+(*) --> "Menu" as Menu
+Menu --> "Xifrador" as Xifrador
+Menu --> "Desxifrador" as Desxifrador
+Xifrador --> "Xifrador Per Consola" as XCon
+Xifrador --> "Xifrador Per Document" as XDoc
+Desxifrador --> "Desxifrador Per Consola" as DXifCon
+Desxifrador --> "Desxifrador Per Document" as DXifDoc
+
+XCon --> "Executar Algoritme de Xifratge" as AlgoX
+XDoc --> "Executar Algoritme de Xifratge" as AlgoX 
+if "Acaba de començar" then
+    --> [Si] "Comprovacions Inicials" 
+    if "Frase Buida" then
+        --> [Si] "Ignoram tot, retornam res" as Val23
+    else
+        --> [No] "Calculam Valor Inicial, aleatori entre 200 i 300" as Val22
+    endif
+else 
+    --> [No] "Xifram" as Xifram
+endif
+Val22 --> AlgoX
+Val23 --> AlgoX
+Xifram --> AlgoritmeX
+
+AlgoritmeX --> "Agafam mida de la frase" as Algoritme0X
+AlgoritmeX --> "Inicialitzam un bucle, index = 0" as IniciBucleX
+if "Mida de Frase major a index" as comparamidaX then
+--> [Si] "Agafam el primer caràcter" as AlgoP1X
+IniciBucleX --> "Exemple, input hola" as ExempleX
+ExempleX --> "h" as ExempleP1X
+AlgoP1X --> "Convertim a ASCII" as AlgoP2X
+ExempleP1X --> "104" as ExempleP2X
+AlgoP2X --> "Multiplicam per el factor, per exemple 204" as AlgoP3X
+ExempleP2X --> "31616" as ExempleP3X
+AlgoP3X --> "Afegim caràcters a string frasexifrada, Sumam 1 a l'index" as AlgoP4X
+AlgoP4X --> comparamidaX
+else
+--> [No] "Acabam el bucle" as finalbucleX
+endif
+if "Opció seleccionada"
+--> [Per Consola] "Ho imprimim per consola"
+else
+--> [Per Fitxer] "Ho posam a un fitxer"
+
+' Duplication for Decryption Side
+DXifCon --> "Executar Algoritme de Desxifratge" as AlgoDX
+DXifDoc --> "Executar Algoritme de Desxifratge" as AlgoDX
+
+AlgoDX --> "Agafam mida de la frase xifrada" as Algoritme0DX
+AlgoDX --> "Inicialitzam un bucle, index = 0" as IniciBucleDX
+if "Mida de Frase Xifrada major a index" as comparamidaDX then
+--> [Si] "Agafam el primer bloc de caràcters xifrats" as AlgoP1DX
+IniciBucleDX --> "Exemple, input 31616" as ExempleDX
+ExempleDX --> "31616" as ExempleP1DX
+AlgoP1DX --> "Dividim pel factor, per exemple 204" as AlgoP2DX
+ExempleP1DX --> "104" as ExempleP2DX
+AlgoP2DX --> "Convertim a caràcter ASCII" as AlgoP3DX
+ExempleP2DX --> "h" as ExempleP3DX
+AlgoP3DX --> "Afegim caràcter a string fraseoriginal, Sumam 1 a l'index" as AlgoP4DX
+AlgoP4DX --> comparamidaDX
+else
+--> [No] "Acabam el bucle" as finalbucleDX
+endif
+if "Opció seleccionada"
+--> [Per Consola] "Ho imprimim per consola"
+else
+--> [Per Fitxer] "Ho posam a un fitxer"
+@enduml
