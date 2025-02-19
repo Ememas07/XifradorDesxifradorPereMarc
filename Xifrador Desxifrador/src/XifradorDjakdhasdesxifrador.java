@@ -25,19 +25,21 @@ public class XifradorDjakdhasdesxifrador {
         switch (opcio) {
             case 0:
                 frase = JOptionPane.showInputDialog("Introdueixi frase");
+                frase = frase.replaceAll("[^a-zA-Z0-9 ]", "");
                 frasexifrada = encriptador(frase);
                 System.out.println(frasexifrada);
                 break;
             case 1:
                 frase = JOptionPane.showInputDialog("Introdueixi frase");
+                frase = frase.replaceAll("[^a-zA-Z0-9 ]", "");
                 nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)");
                 frasexifrada = encriptador(frase);
                 EscriureArxiu(nomArxiu, frasexifrada);
                 break;
             case 2:
                 frase = JOptionPane.showInputDialog("Introdueixi frase");
+                frase = frase.replaceAll("[^a-zA-Z0-9 ]", "");
                 frasedesxifrada = desencriptador(frase);
-                System.out.println(frasedesxifrada);
                 break;
             case 3:
                 nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)");

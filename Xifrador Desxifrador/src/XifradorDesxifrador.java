@@ -26,11 +26,13 @@ public class XifradorDesxifrador {
         switch (opcio) {
             case 0:
                 frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
+                frase = frase.replaceAll("[^a-zA-Z0-9 ]", ""); // Llevam caràcters especials
                 frasexifrada = encriptador(frase); // Passam el xifrador per la frase
                 System.out.println(frasexifrada); // Posam la frase xifrada i la donam per consola
                 break;
             case 1:
                 frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
+                frase = frase.replaceAll("[^a-zA-Z0-9 ]", ""); // Llevam caràcters especials
                 nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)"); // Demanam a l'usuari
                                                                                                    // que introdueixi el
                                                                                                    // nom de l'arxiu
@@ -39,8 +41,8 @@ public class XifradorDesxifrador {
                 break;
             case 2:
                 frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
+                frase = frase.replaceAll("[^a-zA-Z0-9 ]", ""); // Llevam caràcters especials
                 frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
-                System.out.println(frasedesxifrada); // Posam la frase xifrada i la donam per consola
                 break;
             case 3:
                 nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)"); // Demanam a l'usuari
