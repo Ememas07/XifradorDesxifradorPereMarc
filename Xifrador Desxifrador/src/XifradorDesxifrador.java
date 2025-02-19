@@ -26,13 +26,13 @@ public class XifradorDesxifrador {
         switch (opcio) {
             case 0:
                 frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
-                frase = frase.replaceAll("[^a-zA-Z0-9 ]", ""); // Llevam caràcters especials
+                frase = frase.replaceAll("[^a-zA-Z ]", ""); // Llevam caràcters especials
                 frasexifrada = encriptador(frase); // Passam el xifrador per la frase
                 System.out.println(frasexifrada); // Posam la frase xifrada i la donam per consola
                 break;
             case 1:
                 frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
-                frase = frase.replaceAll("[^a-zA-Z0-9 ]", ""); // Llevam caràcters especials
+                frase = frase.replaceAll("[^a-zA-Z ]", ""); // Llevam caràcters especials
                 nomArxiu = JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)"); // Demanam a l'usuari
                                                                                                    // que introdueixi el
                                                                                                    // nom de l'arxiu
@@ -41,7 +41,6 @@ public class XifradorDesxifrador {
                 break;
             case 2:
                 frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi la frase
-                frase = frase.replaceAll("[^a-zA-Z0-9 ]", ""); // Llevam caràcters especials
                 frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
                 break;
             case 3:
@@ -68,18 +67,19 @@ public class XifradorDesxifrador {
     }
 
     public static String LlegirArxiu(String nomArxiu) { // Aquesta funció llegeix l'arxiu que nosaltres li diem
-        StringBuilder content = new StringBuilder(); // Crea un string "content" en el qual hi posarem tot el contingut
-                                                     // de l'arxiu
+        StringBuilder contingut = new StringBuilder(); // Crea un string "contingut" en el qual hi posarem tot el
+                                                       // contingut
+                                                       // de l'arxiu
         try (BufferedReader reader = new BufferedReader(new FileReader(nomArxiu))) { // Llegeix l'arxiu
             String line;
             while ((line = reader.readLine()) != null) { // Mentre que la nova linea de l'arxiu no estigui buida,
                                                          // llegeix l'arxiu
-                content.append(line).append("\n");
+                contingut.append(line).append("\n");
             }
         } catch (IOException e) { // si hi ha cap error, ens informarà
             System.out.println("Error de lectura: " + e.getMessage());
         }
-        return content.toString().trim();
+        return contingut.toString().trim();
     }
 
     public static String encriptador(String frase) { // Encriptam la frase
@@ -95,7 +95,7 @@ public class XifradorDesxifrador {
                              // pero elevat al quadrat.
                 char caracter = (char) ValorXifratge; // convertim el valorxifratge a caracter
                 caracterxifrat = caracter * ValorXifratge; // multiplicam el valorxifratge per ell mateix (més robust)
-                frasecanviada.append("").append(caracterxifrat); // Afegim aquest valor a la frase
+                frasecanviada.append(caracterxifrat); // Afegim aquest valor a la frase
             }
             char caracter = frase.charAt(index); // agafam el (index) de la frase, per encriptar el primer caracter,
                                                  // després el segon...
