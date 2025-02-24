@@ -21,18 +21,14 @@ else
 endif
 Val22 --> AlgoX
 Val23 --> AlgoX
-Xifram --> AlgoritmeX
+Xifram --> "Algoritme de Xifratge" as AlgoritmeX
 
 AlgoritmeX --> "Agafam mida de la frase" as Algoritme0X
-AlgoritmeX --> "Inicialitzam un bucle, index = 0" as IniciBucleX
+Algoritme0X --> "Inicialitzam un bucle, index = 0" as IniciBucleX
 if "Mida de Frase major a index" as comparamidaX then
 --> [Si] "Agafam el primer caràcter" as AlgoP1X
-IniciBucleX --> "Exemple, input hola" as ExempleX
-ExempleX --> "h" as ExempleP1X
 AlgoP1X --> "Convertim a ASCII" as AlgoP2X
-ExempleP1X --> "104" as ExempleP2X
 AlgoP2X --> "Multiplicam per el factor, per exemple 204" as AlgoP3X
-ExempleP2X --> "31616" as ExempleP3X
 AlgoP3X --> "Afegim caràcters a string frasexifrada, Sumam 1 a l'index" as AlgoP4X
 AlgoP4X --> comparamidaX
 else
@@ -43,10 +39,22 @@ if "Opció seleccionada"
 else
 --> [Per Fitxer] "Ho posam a un fitxer"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ' Duplication for Decryption Side
 DXifCon --> "Executar Algoritme de Desxifratge" as AlgoDX
 DXifDoc --> "Executar Algoritme de Desxifratge" as AlgoDX
-
 AlgoDX --> "Agafam mida de la frase xifrada" as Algoritme0DX
 AlgoDX --> "Inicialitzam un bucle, index = 0" as IniciBucleDX
 if "Mida de Frase Xifrada major a index" as comparamidaDX then
@@ -63,7 +71,7 @@ else
 --> [No] "Acabam el bucle" as finalbucleDX
 endif
 if "Opció seleccionada"
---> [Per Consola] "Ho imprimim per consola"
+--> [Per Consola] "Ho imprimim2 per consola"
 else
---> [Per Fitxer] "Ho posam a un fitxer"
+--> [Per Fitxer] "Ho posam2 a un fitxer"
 @enduml
