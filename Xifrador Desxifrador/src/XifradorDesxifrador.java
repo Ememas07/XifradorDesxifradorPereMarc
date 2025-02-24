@@ -21,27 +21,20 @@ public class XifradorDesxifrador {
                 null, // icono (no en tenim)
                 opcions, // Quines opcions tenim
                 opcions[0]); // Primera opció
-        String[] opcions2 = { "Consola", "Document" }; // Les quatre opcions que pots fer
+        
+        
+
+        switch (opcio) {
+            case 0:
+            String[] opcions2 = { "Consola", "Document" }; // Les quatre opcions que pots fer
         int opcio2 = JOptionPane.showOptionDialog(null,
-                "Que vols fer?", // Títol
-                "Seleccioni una opció", // Missatge de la barra de dalt
+                "Com vols xifrar?", // Títol
+                "Has seleccionat Xifrar", // Missatge de la barra de dalt
                 -1, // Opció per defecte (no n'hi ha)
                 3, // Tipus de missatge, 3 és per opció múltiple
                 null, // icono (no en tenim)
                 opcions2, // Quines opcions tenim
                 opcions2[0]); // Primera opció
-        String[] opcions3 = { "Consola", "Document" }; // Les quatre opcions que pots fer
-        int opcio3 = JOptionPane.showOptionDialog(null,
-                "Que vols fer?", // Títol
-                "Seleccioni una opció", // Missatge de la barra de dalt
-                -1, // Opció per defecte (no n'hi ha)
-                3, // Tipus de missatge, 3 és per opció múltiple
-                null, // icono (no en tenim)
-                opcions3, // Quines opcions tenim
-                opcions3[0]); // Primera opció
-
-        switch (opcio) {
-            case 0:
                 switch (opcio2) {
                     case 0:
                         frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi
@@ -65,8 +58,17 @@ public class XifradorDesxifrador {
                         EscriureArxiu(nomArxiu, frasexifrada); // Escrivim l'arxiu xifrat al document
                         break;
                 }
-                break;
+            break;
             case 1:
+            String[] opcions3 = { "Consola", "Document" }; // Les quatre opcions que pots fer
+        int opcio3 = JOptionPane.showOptionDialog(null,
+                "Com vols desxifrar", // Títol
+                "Has seleccionat Desxifrar", // Missatge de la barra de dalt
+                -1, // Opció per defecte (no n'hi ha)
+                3, // Tipus de missatge, 3 és per opció múltiple
+                null, // icono (no en tenim)
+                opcions3, // Quines opcions tenim
+                opcions3[0]); // Primera opció
                 switch (opcio3) {
                     case 0:
                         frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a l'usuari que introdueixi
@@ -85,47 +87,8 @@ public class XifradorDesxifrador {
                         frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
                         break;
                 }
-                break;
+            break;
         }
-
-        /*
-         * switch (opcio) {
-         * case 0:
-         * frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a
-         * l'usuari que introdueixi la frase
-         * frase = frase.replaceAll("[^a-zA-Z ]", ""); // Llevam caràcters especials
-         * frasexifrada = encriptador(frase); // Passam el xifrador per la frase
-         * System.out.println(frasexifrada); // Posam la frase xifrada i la donam per
-         * consola
-         * break;
-         * case 1:
-         * frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a
-         * l'usuari que introdueixi la frase
-         * frase = frase.replaceAll("[^a-zA-Z ]", ""); // Llevam caràcters especials
-         * nomArxiu =
-         * JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)"); //
-         * Demanam a l'usuari
-         * // que introdueixi el
-         * // nom de l'arxiu
-         * frasexifrada = encriptador(frase); // Passam el xifrador per la frase
-         * EscriureArxiu(nomArxiu, frasexifrada); // Escrivim l'arxiu xifrat al document
-         * break;
-         * case 2:
-         * frase = JOptionPane.showInputDialog("Introdueixi frase"); // Demanam a
-         * l'usuari que introdueixi la frase
-         * frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
-         * break;
-         * case 3:
-         * nomArxiu =
-         * JOptionPane.showInputDialog("Introdueixi nom d'arxiu (AMB EXTENSIÓ!)"); //
-         * Demanam a l'usuari
-         * // que introdueixi el
-         * // nom de l'arxiu
-         * frase = LlegirArxiu(nomArxiu); // Crida la funcio de llegir arxiu
-         * frasedesxifrada = desencriptador(frase); // Passam el xifrador per la frase
-         * break;
-         * }
-         */
     }
 
     public static void EscriureArxiu(String nomArxiu, String contingutArxiu) { // Aquesta funció llegeix l'arxiu que
