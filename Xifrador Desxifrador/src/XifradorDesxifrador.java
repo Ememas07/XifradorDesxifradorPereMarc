@@ -99,10 +99,11 @@ public class XifradorDesxifrador {
                             sortir = false;
                             break;
                         case 2:
+                        System.out.println("aa");
                             break;
                     }
-                case 2:
-                sortir=false;
+                    case 2:
+                    System.out.println("b");
                     break;
             }
         }
