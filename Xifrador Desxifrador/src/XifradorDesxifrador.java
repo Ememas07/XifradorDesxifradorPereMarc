@@ -12,20 +12,22 @@ public class XifradorDesxifrador {
         String nomArxiu;
         String frasexifrada;
         String frasedesxifrada;
-        
 
         boolean sortir = true;
         while (sortir) {
             String[] opcions = { "Xifrador", "Desxifrador", "Sortir" }; // Les opcions que pots fer
             int opcio = JOptionPane.showOptionDialog(null,
-                "Que vols fer?", // Títol
-                "Seleccioni una opció", // Missatge de la barra de dalt
-                -1, // Opció per defecte (no n'hi ha)
-                3, // Tipus de missatge, 3 és per opció múltiple
-                null, // icono (no en tenim)
-                opcions, // Quines opcions tenim
-                opcions[0]); // Primera opció
+                    "Que vols fer?", // Títol
+                    "Seleccioni una opció", // Missatge de la barra de dalt
+                    -1, // Opció per defecte (no n'hi ha)
+                    3, // Tipus de missatge, 3 és per opció múltiple
+                    null, // icono (no en tenim)
+                    opcions, // Quines opcions tenim
+                    opcions[0]); // Primera opció
             switch (opcio) {
+                case 2:
+                    System.out.println("b");
+                    break;
                 case 0:
                     String[] opcions2 = { "Consola", "Document", "Tornar Enrere" }; // Les opcions que pots fer
                     int opcio2 = JOptionPane.showOptionDialog(null,
@@ -63,8 +65,8 @@ public class XifradorDesxifrador {
                             EscriureArxiu(nomArxiu, frasexifrada); // Escrivim l'arxiu xifrat al document
                             sortir = false;
                             break;
-                            case 2:
-                    break;
+                        case 2:
+                            break;
                     }
                     break;
                 case 1:
@@ -99,12 +101,9 @@ public class XifradorDesxifrador {
                             sortir = false;
                             break;
                         case 2:
-                        System.out.println("aa");
+                            System.out.println("aa");
                             break;
                     }
-                    case 2:
-                    System.out.println("b");
-                    break;
             }
         }
     }
