@@ -12,7 +12,6 @@ public class XifradorDesxifrador {
         String nomArxiu;
         String frasexifrada;
         String frasedesxifrada;
-
         boolean sortir = true;
         while (sortir) {
             String[] opcions = { "Xifrador", "Desxifrador", "Sortir" }; // Les opcions que pots fer
@@ -26,7 +25,6 @@ public class XifradorDesxifrador {
                     opcions[0]); // Primera opció
             switch (opcio) {
                 case 2:
-                    System.out.println("b");
                     break;
                 case 0:
                     String[] opcions2 = { "Consola", "Document", "Tornar Enrere" }; // Les opcions que pots fer
@@ -101,7 +99,6 @@ public class XifradorDesxifrador {
                             sortir = false;
                             break;
                         case 2:
-                            System.out.println("aa");
                             break;
                     }
             }
