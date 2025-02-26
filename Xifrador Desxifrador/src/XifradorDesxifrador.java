@@ -12,8 +12,12 @@ public class XifradorDesxifrador {
         String nomArxiu;
         String frasexifrada;
         String frasedesxifrada;
-        String[] opcions = { "Xifrador", "Desxifrador", "Sortir" }; // Les opcions que pots fer
-        int opcio = JOptionPane.showOptionDialog(null,
+        
+
+        boolean sortir = true;
+        while (sortir) {
+            String[] opcions = { "Xifrador", "Desxifrador", "Sortir" }; // Les opcions que pots fer
+            int opcio = JOptionPane.showOptionDialog(null,
                 "Que vols fer?", // Títol
                 "Seleccioni una opció", // Missatge de la barra de dalt
                 -1, // Opció per defecte (no n'hi ha)
@@ -21,9 +25,6 @@ public class XifradorDesxifrador {
                 null, // icono (no en tenim)
                 opcions, // Quines opcions tenim
                 opcions[0]); // Primera opció
-
-        boolean sortir = true;
-        while (sortir) {
             switch (opcio) {
                 case 0:
                     String[] opcions2 = { "Consola", "Document", "Tornar Enrere" }; // Les opcions que pots fer
@@ -62,8 +63,8 @@ public class XifradorDesxifrador {
                             EscriureArxiu(nomArxiu, frasexifrada); // Escrivim l'arxiu xifrat al document
                             sortir = false;
                             break;
-                        case 2:
-                            break;
+                            case 2:
+                    break;
                     }
                     break;
                 case 1:
@@ -100,6 +101,8 @@ public class XifradorDesxifrador {
                         case 2:
                             break;
                     }
+                case 2:
+                sortir=false;
                     break;
             }
         }
